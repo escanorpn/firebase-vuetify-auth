@@ -13,6 +13,7 @@ import {
   sendEmailVerification,
   sendPasswordResetEmail,
   createUserWithEmailAndPassword,
+  signInWithPhoneNumber,
 } from "firebase/auth"
 
 export default {
@@ -142,8 +143,9 @@ export default {
       commit("SET_LOADING", true)
       commit("SET_PHONE_TEXT_CONFIRMATION", null)
 
-      const phone = "+1" + phoneNumber.replace(/\D/g, "")
+      const phone = "+254" + phoneNumber.replace(/\D/g, "")
       const auth = getAuth(Vue.prototype.$authGuardFirebaseApp)
+      // console.log(phone);
       const confirmationResult = await signInWithPhoneNumber(auth, phone, recaptchaVerifier)
 
       commit("SET_LOADING", false)
@@ -157,12 +159,16 @@ export default {
 
   //
   async confirmCode({ state, commit }, confirmationCode) {
+    let cd=111111
     try {
       commit("SET_LOADING", true)
+      const concatenatedString = confirmationCode.join('');
+      const result = parseInt(concatenatedString);
 
-      console.log("confirmationCode", confirmationCode.join())
+console.log(result)
+      // console.log("confirmationCode", confirmationCode.join(),confirmationCode)
 
-      await state.text_confirmation.confirm(confirmationCode.join())
+      await state.text_confirmation.confirm(result)
 
       commit("SET_LOADING", false)
       commit("SET_SIGN_BY_PHONE_STEP", 1)

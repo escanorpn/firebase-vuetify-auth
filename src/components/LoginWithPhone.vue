@@ -28,7 +28,7 @@
               autocomplete="off"
               label="Phone Number"
               prepend-icon="mdi-cellphone"
-              prefix="+1"
+              prefix="+254"
               :rules="[rules.phoneNumber]"
             />
           </v-card-text>
@@ -102,7 +102,7 @@ export default {
     // phone number validation
     rules() {
       const validation = {
-        phoneNumber: this.phoneNumber.replace(/\D/g, "") < 1000000000 ? "Please enter a valid US phone number" : true,
+        phoneNumber: this.phoneNumber.replace(/\D/g, "") < 100000000 ? "Please enter a valid phone number" : true,
       }
 
       return validation

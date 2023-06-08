@@ -52,7 +52,7 @@ module.exports = {
       },
 
       // Use prettierrc for prettier options or not (default: `true`)
-      usePrettierrc: true,
+      usePrettierrc: false,
 
       // Set the options for `prettier.getFileInfo`.
       // @see https://prettier.io/docs/en/api.html#prettiergetfileinfofilepath-options
@@ -76,16 +76,7 @@ module.exports = {
     "vue/max-attributes-per-line": 0,
     "vue/multi-word-component-names": 0,
     "vue/singleline-html-element-content-newline": 0,
-    "prettier-vue/prettier": [
-      "error",
-      {
-        // Override all options of `prettier` here
-        // @see https://prettier.io/docs/en/options.html
-        printWidth: 120,
-        singleQuote: false,
-        semi: false,
-        trailingComma: "es5",
-      },
-    ],
+    "prettier-vue/prettier": 0
+    
   },
 }

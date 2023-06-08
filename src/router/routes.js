@@ -16,4 +16,10 @@ export default [
     meta: { requiresAuth: true },
     component: () => import(/* webpackChunkName: "protected" */ "@/views/Protected"),
   },
+  // {
+  //   name: "Products",
+  //   path: "/protected",
+  //   meta: { requiresAuth: true },
+  //   component: () => import(/* webpackChunkName: "protected" */ "@/views/products"),
+  // },
 ]
