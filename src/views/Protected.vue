@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import { updateProfile, updatePassword } from "firebase/auth";
 export default {
   data: () => ({
     form: {
@@ -96,9 +97,35 @@ export default {
   },
 
   methods: {
-    updateUser() {
-      alert("this is just a test!")
+    async updateUser() {
+      this.error = null;
+      this.progress = true;
+
+      try {
+        const currentUser = this.$store.getters["auth/getCurrentUser"];
+        if (!currentUser) {
+          throw new Error("User not found");
+        }
+
+        // Update display name
+        if (this.form.name !== currentUser.displayName) {
+          await updateProfile(currentUser, { displayName: this.form.name });
+        }
+
+        // Update password
+        if (this.form.password) {
+          await updatePassword(currentUser, this.form.password);
+        }
+
+        this.$toast.success("Account updated successfully");
+      } catch (error) {
+        this.error = error;
+        this.$toast.error("Failed to update account: " + error.message);
+      }
+
+      this.progress = false;
     },
   },
+  
 }
 </script>

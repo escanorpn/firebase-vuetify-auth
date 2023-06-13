@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app"
+import { getFirestore } from "firebase/firestore"
+import { getStorage, ref } from "firebase/storage";
 
 const config = {
   appId: process.env.VUE_APP_FIREBASE_APP_ID,
@@ -12,6 +14,8 @@ const config = {
 }
 
 const app = initializeApp(config)
+export const db = getFirestore(app)
+export const storage = getStorage(app);
 
 // export default firebase
 export default app

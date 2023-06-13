@@ -25,14 +25,16 @@
   },
   "dependencies": {
     "@mdi/font": "^7.1.96",
+    "ant-design-vue": "^3.2.20",
     "firebase": "^9.8.4",
     "mdbvue": "^6.7.4",
     "v-mask": "^2.3.0",
     "vue": "^2.6.14",
     "vue-router": "^3.5.4",
+    "vue-upload-drop-images": "^1.0.7",
     "vue-upload-image": "^1.1.5",
     "vuelidate": "^0.7.7",
-    "vuetify": "^2.6.6",
+    "vuetify": "^2.6.15",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

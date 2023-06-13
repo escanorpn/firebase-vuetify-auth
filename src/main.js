@@ -6,6 +6,7 @@ import "@/plugins/auth"
 import vuetify from "@/plugins/vuetify"
 
 import app from "@/middleware/firebase"
+
 import { getAuth, onAuthStateChanged } from "firebase/auth"
 
 Vue.config.productionTip = false

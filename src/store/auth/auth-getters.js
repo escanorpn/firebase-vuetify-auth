@@ -38,6 +38,7 @@ export default {
   isLoading(state) {
     return state.is_loading
   },
+  iLoading: (state) => state.loading,
   isAuthenticated(state, getters) {
     const user = getters.getCurrentUser
     return user ? true : false

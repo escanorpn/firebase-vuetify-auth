@@ -1,4 +1,7 @@
 export default {
+  setLoading(state, value) {
+    state.loading = value;
+  },
   SET_TAB: (state, index) => (state.tab = index),
   SET_ERROR: (state, error) => (state.error = error),
   SET_CONFIG: (state, config) => (state.config = config),
