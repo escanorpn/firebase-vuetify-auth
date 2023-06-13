@@ -112,7 +112,9 @@ export default {
             (snapshot) => {
               const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
               console.log("Upload is " + progress + "% done");
+              this.$toast.success("Upload is " + progress + "% done");
             },
+            
             (error) => {
               reject(error);
             },
@@ -174,9 +176,11 @@ export default {
       deleteDoc(productDoc)
         .then(() => {
           console.log("Product deleted from Firestore collection 'one'");
+          this.$toast.info("Product deleted from Firestore");
         })
         .catch((error) => {
           console.error("Error deleting product:", error);
+          this.$toast.error("Error deleting product:");
         });
     },
   },

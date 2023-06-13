@@ -112,6 +112,7 @@ export default {
             (snapshot) => {
               const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
               console.log("Upload is " + progress + "% done");
+              this.$toast.success("Upload is " + progress + "% done");
             },
             (error) => {
               reject(error);
@@ -150,14 +151,19 @@ export default {
           addDoc(pref, data)
             .then(() => {
               console.log("Data added to Firestore collection 'one'");
+              this.$toast.success("Data added to Firestore ");
             })
             .catch((error) => {
               console.error("Error adding data:", error);
+              this.$toast.error("Error adding data");
+       
+              
             });
         })
         .catch((error) => {
           console.error("Error uploading files:", error);
           this.stopLoading();
+          this.$toast.error("Error uploading files");
         });
     },
 
@@ -190,6 +196,7 @@ export default {
         })
         .catch((error) => {
           console.error("Error deleting service:", error);
+          this.$toast.error("Error deleting service");
         });
     },
   },

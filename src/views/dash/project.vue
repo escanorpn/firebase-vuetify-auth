@@ -102,6 +102,7 @@ export default {
         .catch((error) => {
           console.error("Error adding project data:", error);
           this.stopLoading();
+          this.$toast.error("Error adding project data");
         });
     },
     updateProject() {
@@ -126,6 +127,8 @@ export default {
         .catch((error) => {
           console.error("Error updating project data:", error);
           this.stopLoading();
+          this.$toast.error("Error updating project data");
+          
         });
     },
     deleteProject(projectId) {
@@ -144,6 +147,8 @@ export default {
         .catch((error) => {
           console.error("Error deleting project data:", error);
           this.stopLoading();
+          this.$toast.error("Error deleting project data");
+          
         });
     },
     editProject(project) {

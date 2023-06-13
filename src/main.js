@@ -9,6 +9,16 @@ import app from "@/middleware/firebase"
 
 import { getAuth, onAuthStateChanged } from "firebase/auth"
 
+import Toast from "vue-toastification";
+// Import the CSS or use your own!
+import "vue-toastification/dist/index.css";
+
+const options = {
+    // You can set your default options here
+};
+
+
+Vue.use(Toast, options);
 Vue.config.productionTip = false
 
 // reload VUE app on Firebase auth state change

@@ -140,15 +140,18 @@ export default {
           Promise.all(batch)
             .then(() => {
               console.log("Images uploaded successfully.");
+              this.$toast.success("Images uploaded successfully.");
               this.files = [];
             })
             .catch((error) => {
               console.error("Error uploading images:", error);
+              this.$toast.error("Error uploading images");
             });
         })
         .catch((error) => {
           console.error("Error uploading images:", error);
           this.stopLoading();
+          this.$toast.error("Error uploading images");
         });
     },
     deleteImage(companyId) {
@@ -164,6 +167,7 @@ export default {
         })
         .catch((error) => {
           console.error("Error deleting document:", error);
+          this.$toast.error("Error deleting document");
         });
     },
   },
